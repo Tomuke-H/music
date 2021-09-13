@@ -20,12 +20,19 @@ class App extends React.Component {
     })
   }
 
+  deleteSong = (id) => {
+    let updatedSongs = this.state.songs.filter(s => s.id !== id)
+    this.setState({
+      songs: updatedSongs
+    })
+  }
+
   render() {
     return (
       <div>
         <h1>App</h1>
         <SongForm addSong={this.addSong}/>
-        <Songs songs={this.state.songs}/>
+        <Songs deleteSong={this.deleteSong} songs={this.state.songs}/>
       </div>
     )
   }

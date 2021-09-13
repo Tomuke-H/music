@@ -7,7 +7,7 @@ class Songs extends React.Component {
         console.log(this.props.songs)
         return this.props.songs.map(s => {
             return(
-                <Song key={s.id} song={s} />
+                <Song deleteSong={this.props.deleteSong} key={s.id} song={s} />
             )
         })
     }
