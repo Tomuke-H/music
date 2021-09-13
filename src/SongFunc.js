@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, Card } from 'semantic-ui-react';
 import SongFormFunc from './SongFormFunc';
 
-const SongF = ({song, updateSong, deleteSong}) => {
+const SongFunc = ({song, updateSong, deleteSong}) => {
     const [editForm, setEditForm] = useState(false)
     
     
@@ -11,17 +11,13 @@ const SongF = ({song, updateSong, deleteSong}) => {
             <div>
                 <Card>
                     <SongFormFunc setEditForm={setEditForm} song={song} updateSong={updateSong}/>
-                    <Button 
-                        onClick={() => setEditForm(!editForm)}
-                        >
-                        Cancel
-                    </Button>
                 </Card>
             </div>
         )
-    }
-    return (
-        <Card>
+    } else {
+
+        return (
+            <Card>
             <Card.Content>
                 <Card.Header>
                     {song.title}
@@ -35,20 +31,20 @@ const SongF = ({song, updateSong, deleteSong}) => {
                     <Button 
                         color="teal"
                         onClick={() => setEditForm(!editForm)}
-                    >
+                        >
                         Edit
                     </Button>
                     <Button 
                         onClick={() => deleteSong(song.id)}
                         color="orange"
-                    >
+                        >
                         Delete
                     </Button>
                 </div>
             </Card.Content>
         </Card>
-    )
-    
+        )
+    }
 }
 
-export default SongF;
+export default SongFunc;

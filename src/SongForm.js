@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Card, Form } from 'semantic-ui-react';
 
 class SongForm extends React.Component {
     state = {
@@ -29,27 +29,33 @@ class SongForm extends React.Component {
 
     render() {
         return (
-            <Form onSubmit={this.handleSubmit}>
-                <Form.Field>
-                    <label>Title</label>
-                    <input 
-                        name={"title"}
-                        value={this.state.title} 
-                        placeholder="Title"
-                        onChange={this.handleChange}
-                    />
-                </Form.Field>
-                <Form.Field>
-                    <label>Artist</label>
-                    <input 
-                        name={"artist"}
-                        value={this.state.artist} 
-                        placeholder="Artist"
-                        onChange={this.handleChange}
-                    />
-                </Form.Field>
-                <Button type="submit">{this.props.song ? "Update" : "Add"}</Button>
-            </Form>
+            <Card>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Field>
+                    
+                        <label>Title</label>
+                        <input 
+                            name={"title"}
+                            value={this.state.title} 
+                            placeholder="Title"
+                            onChange={this.handleChange}
+                            />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Artist</label>
+                        <input 
+                            name={"artist"}
+                            value={this.state.artist} 
+                            placeholder="Artist"
+                            onChange={this.handleChange}
+                            />
+                    </Form.Field>
+                    <div className= "ui two buttons">
+                        <Button color="blue" type="submit">{this.props.song ? "Update" : "Add"}</Button>
+                        {this.props.song && <Button color="orange" onClick={this.props.editFormToggle}>Cancel</Button>}
+                    </div>
+                </Form>
+            </Card>
         )
     }
 }

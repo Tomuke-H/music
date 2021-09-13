@@ -10,7 +10,7 @@ const songList = [
     {id: 4, title: 'We Own the Night', artist: 'Dance Gavin Dance'},
     {id: 5, title: 'Attractive Today', artist: 'Motion City Soundtrack'},
 ]
-const SongsF = () => {
+const SongsFunc = () => {
     const [songs, setSongs] = useState(songList)
     
     
@@ -50,4 +50,4 @@ const SongsF = () => {
     
 }
 
-export default SongsF;
+export default SongsFunc;

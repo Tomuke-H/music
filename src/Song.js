@@ -16,14 +16,7 @@ class Song extends React.Component {
     render() {
         if(this.state.editForm){
             return (
-                <div>
-                    <SongForm editFormToggle={this.editFormToggle} song={this.props.song} updateSong={this.props.updateSong}/>
-                    <Button 
-                        onClick={this.editFormToggle}
-                    >
-                        Cancel
-                    </Button>
-                </div>
+                <SongForm editFormToggle={this.editFormToggle} song={this.props.song} updateSong={this.props.updateSong}/>   
             )
         }
         return (

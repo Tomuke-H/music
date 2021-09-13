@@ -12,20 +12,24 @@ class App extends React.Component {
   render() {
     if(this.state.classBased){
       return (
-        <div>
+        <div style={{margin: "20px"}}>
           <Button onClick={()=>this.setState({classBased: !this.state.classBased})}>
             Switch to Class Based
           </Button>
-          <SongsFunc />
+          <div style={{margin: "20px"}}>
+            <SongsFunc />
+          </div>
         </div>
       )
     } else {
       return (
-        <div>
+        <div style={{margin: "20px"}}>
           <Button onClick={()=>this.setState({classBased: !this.state.classBased})}>
             Switch to Functional
           </Button>
-          <Songs />
+          <div style={{margin: "20px"}}>
+            <Songs />
+          </div>
         </div>
       )
     }
