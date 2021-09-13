@@ -3,8 +3,9 @@ import { Button, Form } from 'semantic-ui-react';
 
 class SongForm extends React.Component {
     state = {
-        title: '',
-        artist: ''
+        id: this.props.song ? this.props.song.id : undefined,
+        title: this.props.song ? this.props.song.title : '',
+        artist: this.props.song ? this.props.song.artist : ''
     }
 
     handleChange = (e) => {
@@ -14,7 +15,11 @@ class SongForm extends React.Component {
     }
 
     handleSubmit = () => {
-        this.props.addSong({id: Math.random(), title: this.state.title, artist: this.state.artist})
+        if(this.props.song){
+            this.props.updateSong({...this.state})
+        } else {
+            this.props.addSong({id: Math.random(), title: this.state.title, artist: this.state.artist})
+        }
     }
 
     render() {
@@ -38,7 +43,7 @@ class SongForm extends React.Component {
                         onChange={this.handleChange}
                     />
                 </Form.Field>
-                <Button type="submit">Add</Button>
+                <Button type="submit">{this.props.song ? "Update" : "Add"}</Button>
             </Form>
         )
     }

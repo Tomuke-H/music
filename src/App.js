@@ -27,12 +27,19 @@ class App extends React.Component {
     })
   }
 
+  updateSong = (song) => {
+    let updatedSongs = this.state.songs.map(s => s.id === song.id ? song : s)
+    this.setState({
+      songs: updatedSongs
+    })
+  }
+
   render() {
     return (
       <div>
         <h1>App</h1>
         <SongForm addSong={this.addSong}/>
-        <Songs deleteSong={this.deleteSong} songs={this.state.songs}/>
+        <Songs updateSong={this.updateSong} deleteSong={this.deleteSong} songs={this.state.songs}/>
       </div>
     )
   }
