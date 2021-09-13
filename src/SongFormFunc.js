@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react';
 
-const SongFormF = ({song, updateSong, addSong}) => {
+const SongFormF = ({song, updateSong, addSong, setEditForm}) => {
     const [id, setId] = useState(song ? song.id : undefined)
     const [title, setTitle] = useState(song ? song.title : '')
     const [artist, setArtist] = useState(song ? song.artist : '')
@@ -17,8 +17,11 @@ const SongFormF = ({song, updateSong, addSong}) => {
     const handleSubmit = (e) => {
         if(song){
             updateSong({id, title, artist})
+            setEditForm(false)
         } else {
             addSong({id: Math.random(), title, artist})
+            setTitle('')
+            setArtist('')
         }
     }
 

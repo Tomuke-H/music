@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Card } from 'semantic-ui-react';
-import SongFormF from './SongFormF';
+import SongFormFunc from './SongFormFunc';
 
 const SongF = ({song, updateSong, deleteSong}) => {
     const [editForm, setEditForm] = useState(false)
@@ -10,7 +10,7 @@ const SongF = ({song, updateSong, deleteSong}) => {
         return (
             <div>
                 <Card>
-                    <SongFormF song={song} updateSong={updateSong}/>
+                    <SongFormFunc setEditForm={setEditForm} song={song} updateSong={updateSong}/>
                     <Button 
                         onClick={() => setEditForm(!editForm)}
                         >

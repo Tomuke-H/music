@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Card } from 'semantic-ui-react'
-import SongF from './SongF'
-import SongFormF from './SongFormF'
+import SongFunc from './SongFunc'
+import SongFormFunc from './SongFormFunc'
 
 const songList = [
     {id: 1, title: 'Typical', artist: 'MuteMath'},
@@ -31,7 +31,7 @@ const SongsF = () => {
     const renderSongs = () => {
         return songs.map(s => {
             return(
-                <SongF updateSong={updateSong} deleteSong={deleteSong} key={s.id} song={s} />
+                <SongFunc updateSong={updateSong} deleteSong={deleteSong} key={s.id} song={s} />
             )
         })
     }
@@ -40,7 +40,7 @@ const SongsF = () => {
     return (
         <div>
             <h1>A Functional App</h1>
-            <SongFormF addSong={addSong}/>
+            <SongFormFunc addSong={addSong}/>
             <h1>Songs</h1>
             <Card.Group>
                 {renderSongs()}

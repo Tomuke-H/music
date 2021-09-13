@@ -6,14 +6,20 @@ class Song extends React.Component {
     state = {
         editForm: false
     }
+
+    editFormToggle = () => {
+        this.setState({
+            editForm: !this.state.editForm
+        })
+    }
     
     render() {
         if(this.state.editForm){
             return (
                 <div>
-                    <SongForm song={this.props.song} updateSong={this.props.updateSong}/>
+                    <SongForm editFormToggle={this.editFormToggle} song={this.props.song} updateSong={this.props.updateSong}/>
                     <Button 
-                        onClick={() => this.setState({editForm: !this.state.editForm})}
+                        onClick={this.editFormToggle}
                     >
                         Cancel
                     </Button>
@@ -34,7 +40,7 @@ class Song extends React.Component {
                     <div className="ui two buttons">
                         <Button 
                             color="teal"
-                            onClick={() => this.setState({editForm: !this.state.editForm})}
+                            onClick={this.editFormToggle}
                         >
                             Edit
                         </Button>

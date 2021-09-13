@@ -1,9 +1,8 @@
 import './App.css';
 import React from 'react';
 import Songs from './Songs';
-import SongForm from './SongForm';
 import { Button } from 'semantic-ui-react';
-import SongsF from './SongsF';
+import SongsFunc from './SongsFunc';
 
 class App extends React.Component {
   state = {
@@ -12,22 +11,21 @@ class App extends React.Component {
 
   render() {
     if(this.state.classBased){
-
       return (
         <div>
           <Button onClick={()=>this.setState({classBased: !this.state.classBased})}>
-            Switch to Functional
+            Switch to Class Based
           </Button>
-          <Songs />
+          <SongsFunc />
         </div>
       )
     } else {
       return (
         <div>
           <Button onClick={()=>this.setState({classBased: !this.state.classBased})}>
-            Switch to Class Based
+            Switch to Functional
           </Button>
-          <SongsF />
+          <Songs />
         </div>
       )
     }

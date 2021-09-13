@@ -17,8 +17,13 @@ class SongForm extends React.Component {
     handleSubmit = () => {
         if(this.props.song){
             this.props.updateSong({...this.state})
+            this.props.editFormToggle()
         } else {
             this.props.addSong({id: Math.random(), title: this.state.title, artist: this.state.artist})
+            this.setState({
+                title: '',
+                artist: ''
+            })
         }
     }
 
