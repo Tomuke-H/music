@@ -1,5 +1,8 @@
 import React from 'react'
 import { Button, Card } from 'semantic-ui-react';
+import styled from 'styled-components';
+import { Appear, CardContainer } from './CardContainer';
+import { BackgroundColor } from './query';
 import SongForm from './SongForm';
 
 class Song extends React.Component {
@@ -20,7 +23,7 @@ class Song extends React.Component {
             )
         }
         return (
-            <Card>
+            <Card as={MyCard}>
                 <Card.Content>
                     <Card.Header>
                         {this.props.song.title}
@@ -49,5 +52,14 @@ class Song extends React.Component {
         )
     }
 }
+
+const MyCard = styled.div`
+    height: 270px;
+    animation: ${Appear} 1s;
+
+    &:hover {
+        background-color: ${BackgroundColor} !important;
+    }
+`
 
 export default Song;

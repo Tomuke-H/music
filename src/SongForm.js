@@ -1,5 +1,8 @@
 import React from 'react'
 import { Button, Card, Form } from 'semantic-ui-react';
+import styled from 'styled-components';
+import { CardContainer } from './CardContainer';
+import { BackgroundColor, HighlightedBackground } from './query';
 
 class SongForm extends React.Component {
     state = {
@@ -29,12 +32,12 @@ class SongForm extends React.Component {
 
     render() {
         return (
-            <Card>
+            <CardContainer>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Field>
                     
                         <label>Title</label>
-                        <input 
+                        <MyFormInput 
                             name={"title"}
                             value={this.state.title} 
                             placeholder="Title"
@@ -43,7 +46,7 @@ class SongForm extends React.Component {
                     </Form.Field>
                     <Form.Field>
                         <label>Artist</label>
-                        <input 
+                        <MyFormInput 
                             name={"artist"}
                             value={this.state.artist} 
                             placeholder="Artist"
@@ -55,9 +58,15 @@ class SongForm extends React.Component {
                         {this.props.song && <Button color="orange" onClick={this.props.editFormToggle}>Cancel</Button>}
                     </div>
                 </Form>
-            </Card>
+            </CardContainer>
         )
     }
 }
+
+const MyFormInput = styled.input`
+    &:hover {
+        background-color: ${HighlightedBackground} !important;
+    }
+`
 
 export default SongForm;

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
+import styled, { keyframes } from 'styled-components'
 import Song from './Song'
 import SongForm from './SongForm'
 
@@ -58,9 +59,9 @@ class Songs extends React.Component {
     render() {
         return (
             <div>
-                <h1>The App with Class</h1>
+                <MyTitle>The App with Class</MyTitle>
                 <SongForm addSong={this.addSong}/>
-                <h1>Songs</h1>
+                <MyTitle>Songs</MyTitle>
                 <Card.Group>
                     {this.renderSongs()}
                 </Card.Group>
@@ -68,5 +69,21 @@ class Songs extends React.Component {
         )
     }
 }
+
+const SlideIn = keyframes`
+    from {
+        margin-left: 600px;
+        opacity: 0%
+    }
+
+    to {
+        margin-left: 0%
+        opacity: 100%
+    }
+`
+const MyTitle = styled.h1`
+    animation: ${SlideIn} 1.5s
+`
+
 
 export default Songs;
